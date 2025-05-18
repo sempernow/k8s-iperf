@@ -6,8 +6,8 @@
 - Performs two measurements:
     - Same-node case
     - Cross-node case
-- Throughput is expected to vary by host network, 
-  CNI provider, their configurations,
+- Throughput is expected to vary by host network,  
+  CNI provider, their configurations, 
   and adjacent network-traffic conditions.
 
 ## Usage
