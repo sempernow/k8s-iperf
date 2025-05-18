@@ -81,5 +81,4 @@ kubectl run $cPod -it --rm \
 echo -e '\n🚧 === Teardown'
 kubectl config set-context --current --namespace default
 kubectl delete ns ${ns:-___nonexistent_namespace___}
-echo -e '\n======================[ DONE ]=========================\n'
-
+echo -e '🚧 === Done'
