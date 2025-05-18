@@ -54,7 +54,7 @@ echo "✅ === Server pod '$sPod' running at node '$sNode'."
 # Clients : One case at a time
 cPod=client
 cNode=$sNode
-echo "Next, run client pods '$cPod' sequentially (IntRA-node, IntER-node) …"
+echo "Next, run client pods '$cPod' sequentially (Same-node, Cross-node) …"
 
 # - Same-node (IntRA-node) case
 echo -e "\n📊 === Same-node ($sNode-$cNode) traffic between server '$sPod@$sNode' and client '$cPod@$cNode' [Pod@Node] …"
