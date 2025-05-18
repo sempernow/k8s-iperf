@@ -39,11 +39,7 @@ Awaiting Node and IP status of Pod 'server' …
 Next, run client pods 'client' sequentially (IntRA-node, IntER-node) …
 
 📊 === Same-node (a1-a1) traffic between server 'server@a1' and client 'client@a1' [Pod@Node] …
-If you don't see a command prompt, try pressing enter.
-[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
-[  5]   0.00-1.00   sec  2.74 GBytes  23.5 Gbits/sec  3775   3.16 MBytes
 ...
-[  5]   9.00-10.00  sec  2.87 GBytes  24.7 Gbits/sec   32   1.31 MBytes
 - - - - - - - - - - - - - - - - - - - - - - - - -
 [ ID] Interval           Transfer     Bitrate         Retr
 [  5]   0.00-10.00  sec  27.6 GBytes  23.7 Gbits/sec  6590             sender
@@ -53,11 +49,7 @@ iperf Done.
 pod "client" deleted
 
 📊 === Cross-node (a1-a2) traffic between server 'server@a1' and client 'client@a2' [Pod@Node] …
-If you don't see a command prompt, try pressing enter.
-[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
-[  5]   0.00-1.00   sec   328 MBytes  2.75 Gbits/sec    1   4.10 MBytes
 ...
-[  5]   9.00-10.00  sec   427 MBytes  3.58 Gbits/sec   58   4.10 MBytes
 - - - - - - - - - - - - - - - - - - - - - - - - -
 [ ID] Interval           Transfer     Bitrate         Retr
 [  5]   0.00-10.00  sec  3.93 GBytes  3.37 Gbits/sec   59             sender
