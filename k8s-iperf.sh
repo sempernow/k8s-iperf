@@ -31,7 +31,7 @@ ns="test-iperf3-$nonce"
 kubectl create ns $ns
 kubectl get ns $ns || {
     echo "⚠ === ERR : Namespace '$ns' NOT EXIST"
-    exit $?
+    exit 2
 }
 kubectl config set-context --current --namespace $ns
 
