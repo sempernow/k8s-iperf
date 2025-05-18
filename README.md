@@ -15,6 +15,9 @@
 ```bash
 bash k8s-iperf.sh
 ```
+
+Example report
+
 ```plaintext
 =======================================================
 🚀  Bandwidth test of K8s Pod Network using iperf3
