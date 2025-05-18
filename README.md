@@ -24,9 +24,9 @@ bash k8s-iperf.sh
 
 
 🚧 === Create and set context to a per-run Namespace …
-namespace/test-iperf3-8whoepq created
+namespace/test-iperf3-1ofijkd created
 NAME                  STATUS   AGE
-test-iperf3-8whoepq   Active   0s
+test-iperf3-1ofijkd   Active   1s
 Context "kubernetes-admin@lime" modified.
 
 🚧 === Traffic port: 5555
@@ -36,14 +36,14 @@ pod/server created
 Awaiting Node and IP status of Pod 'server' …
 Awaiting Node and IP status of Pod 'server' …
 ✅ === Server pod 'server' running at node 'a1'.
-Next, run client pods 'client' sequentially (IntRA-node, IntER-node) …
+Next, run client pods 'client' sequentially (Same-node, Cross-node) …
 
 📊 === Same-node (a1-a1) traffic between server 'server@a1' and client 'client@a1' [Pod@Node] …
 ...
 - - - - - - - - - - - - - - - - - - - - - - - - -
 [ ID] Interval           Transfer     Bitrate         Retr
-[  5]   0.00-10.00  sec  27.6 GBytes  23.7 Gbits/sec  6590             sender
-[  5]   0.00-10.00  sec  27.6 GBytes  23.7 Gbits/sec                  receiver
+[  5]   0.00-10.00  sec  28.0 GBytes  24.1 Gbits/sec  4447             sender
+[  5]   0.00-10.00  sec  28.0 GBytes  24.1 Gbits/sec                  receiver
 
 iperf Done.
 pod "client" deleted
@@ -52,15 +52,16 @@ pod "client" deleted
 ...
 - - - - - - - - - - - - - - - - - - - - - - - - -
 [ ID] Interval           Transfer     Bitrate         Retr
-[  5]   0.00-10.00  sec  3.93 GBytes  3.37 Gbits/sec   59             sender
-[  5]   0.00-10.00  sec  3.93 GBytes  3.37 Gbits/sec                  receiver
+[  5]   0.00-10.00  sec  4.85 GBytes  4.17 Gbits/sec  845             sender
+[  5]   0.00-10.01  sec  4.85 GBytes  4.16 Gbits/sec                  receiver
 
 iperf Done.
 pod "client" deleted
 
 🚧 === Teardown
 Context "kubernetes-admin@lime" modified.
-namespace "test-iperf3-8whoepq" deleted
-
-======================[ DONE ]=========================
+namespace "test-iperf3-1ofijkd" deleted
+🚧 === Done
 ```
+
+---
