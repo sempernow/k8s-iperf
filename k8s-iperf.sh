@@ -70,6 +70,7 @@ kubectl run $cPod -it --rm \
     --overrides='{"spec": {"nodeName": "'$cNode'"}}' \
     --restart=Never  -- \
     iperf3 -c $sIP -p $port
+
 # Teardown
 echo -e '\n🚧 === Teardown'
 kubectl config set-context --current --namespace default
