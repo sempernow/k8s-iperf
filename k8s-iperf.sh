@@ -24,20 +24,20 @@ clear;echo '
 img=nicolaka/netshoot # https://github.com/nicolaka/netshoot
 port=${1:-5555} # Presumed okay
 
-echo -e '\n🚧 === Create and set context to a per-run Namespace …'
+echo -e '\n🚧  === Create and set context to a per-run Namespace …'
 nonce="$(cat /dev/urandom |tr -dc 'a-z0-9' |fold -w 7 |head -n 1)" || 
     nonce="$(date '+%H.%M.%S%z')"
 ns="test-iperf3-$nonce"
 kubectl create ns $ns
 kubectl get ns $ns || {
-    echo "⚠ === ERR : Namespace '$ns' NOT EXIST"
+    echo "⚠   === ERR : Namespace '$ns' NOT EXIST"
     exit 2
 }
 kubectl config set-context --current --namespace $ns
 
-echo -e "\n🚧 === Traffic port: $port"
+echo -e "\n🚧  === Traffic port: $port"
 
-echo -e '\n🚧 === Creating the server …'
+echo -e '\n🚧  === Creating the server …'
 
 # Server
 sPod=server
@@ -49,7 +49,7 @@ while [[ -z $sNode || -z $sIP ]]; do
     sleep 2
 done
 
-echo "✅ === Server pod '$sPod' running at node '$sNode'." 
+echo "✅  === Server pod '$sPod' running at node '$sNode'." 
 
 # Clients : One case at a time
 cPod=client
@@ -57,7 +57,7 @@ cNode=$sNode
 echo "Next, run client pods '$cPod' sequentially (Same-node, Cross-node) …"
 
 # - Same-node (IntRA-node) case
-echo -e "\n📊 === Same-node ($sNode-$cNode) traffic between server '$sPod@$sNode' and client '$cPod@$cNode' [Pod@Node] …"
+echo -e "\n📊  === Same-node ($sNode-$cNode) traffic between server '$sPod@$sNode' and client '$cPod@$cNode' [Pod@Node] …"
 kubectl run $cPod -it --rm \
     --image=$img \
     --overrides='{"spec": {"nodeName": "'$sNode'"}}' \
@@ -70,7 +70,7 @@ done
 
 # - Cross-node (IntER-node) case
 cNode=$(kubectl get node -o jsonpath='{range .items[*]}{@.metadata.name}{"\n"}{end}' |grep -v "^$sNode" |head -n1)
-echo -e "\n📊 === Cross-node ($sNode-$cNode) traffic between server '$sPod@$sNode' and client '$cPod@$cNode' [Pod@Node] …"
+echo -e "\n📊  === Cross-node ($sNode-$cNode) traffic between server '$sPod@$sNode' and client '$cPod@$cNode' [Pod@Node] …"
 kubectl run $cPod -it --rm \
     --image=$img \
     --overrides='{"spec": {"nodeName": "'$cNode'"}}' \
@@ -78,7 +78,7 @@ kubectl run $cPod -it --rm \
     iperf3 -c $sIP -p $port
 
 # Teardown
-echo -e '\n🚧 === Teardown'
+echo -e '\n🚧  === Teardown'
 kubectl config set-context --current --namespace default
 kubectl delete ns ${ns:-___nonexistent_namespace___}
-echo -e '🚧 === Done'
+echo -e '🚧  === Done'
