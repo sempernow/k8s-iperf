@@ -16,15 +16,17 @@ kubectl version >/dev/null || {
     echo '  REQUIREs kubectl'
     exit 1
 }
-clear;echo '
-=======================================================
-🚀  Bandwidth test of K8s Pod Network using iperf3
-'
-
-#img=nicolaka/netshoot       # https://github.com/nicolaka/netshoot
-img=gd9h/iperf:3.19-hard    # https://hub.docker.com/repository/docker/gd9h/iperf/general
+img=nicolaka/netshoot               # https://github.com/nicolaka/netshoot
+img=gd9h/iperf:3.19-hard            # https://hub.docker.com/repository/docker/gd9h/iperf/general
+img=gd9h/iperf:3.19-patch-20250711  # https://hub.docker.com/repository/docker/gd9h/iperf/general
 port=${1:-5555} # Presumed okay
 
+clear;echo "
+=======================================================
+🚀  Bandwidth test of K8s Pod Network using iperf3
+
+    $img
+"
 echo -e '\n🛠️  === Create and set context to a per-run Namespace …'
 echo -e "Traffic port: $port"
 nonce="$(cat /dev/urandom |tr -dc 'a-z0-9' |fold -w 5 |head -n 1)" || 
