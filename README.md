@@ -1,4 +1,4 @@
-# [`sempernow/k8s-iperf`](https://github.com/sempernow/k8s-iperf "GitHub.com") | [iPerf | iPerf3](https://iperf.fr/ "iperf.fr") | [`gd9h/iperf`](https://hub.docker.com/r/gd9h/iperf/tags "hub.docker.com")
+# [`sempernow/k8s-iperf`](https://github.com/sempernow/k8s-iperf "GitHub.com") | [iPerf | iPerf3](https://iperf.fr/ "iperf.fr") | [`gd9h/iperf`](https://hub.docker.com/r/gd9h/iperf "hub.docker.com")
 
 ### TL;DR
 
