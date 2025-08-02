@@ -17,8 +17,8 @@ kubectl version >/dev/null || {
     exit 1
 }
 img=nicolaka/netshoot               # https://github.com/nicolaka/netshoot
-img=gd9h/iperf:3.19-hard            # https://hub.docker.com/repository/docker/gd9h/iperf/general
-img=gd9h/iperf:3.19-patch-20250711  # https://hub.docker.com/repository/docker/gd9h/iperf/general
+img=gd9h/iperf:3.19-patch-20250729  # https://hub.docker.com/repository/docker/gd9h/iperf/general
+img=gd9h/iperf@sha256:e6714155eea9238cd91caf6373a4173d1d44b723037240c9e8f10de02c9ca859
 port=${1:-5555} # Presumed okay
 
 clear;echo "
